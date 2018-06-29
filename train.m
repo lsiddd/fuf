@@ -1,14 +1,17 @@
-P = 12;
+P = 500;
 [N,M] = size(X);
 [xx,C] = size(D);
-U = randn(P,M+1);
+W1 = randn(P,M+1);
 Xa = [X ones(N,1)];
-S = Xa*U';
-H = tanh(S);
+S1 = Xa*W1';
+H = tanh(S1);
 Ha = [H ones(N,1)];
-V = pinv(Ha)*D; 
-V = V';
-R = Ha*V';
-Y = R;
+W2t = pinv(Ha)*D; % pinv(Ha)=inv(Ha'Ha)*Ha'
+W2 = W2t';
+S2 = Ha*W2t;
+Y = S2;
 E = D-Y;
+[valrna,indrna]=max(Y');
+[valD,indD] = max(D');
+taxa = 100*sum(indrna==indD)/N; % taxa de acerto
 eqm = 1/(N*C)*E(:)'*E(:);
