@@ -1,0 +1,14 @@
+P = 12;
+[N,M] = size(X);
+[xx,C] = size(D);
+U = randn(P,M+1);
+Xa = [X ones(N,1)];
+S = Xa*U';
+H = tanh(S);
+Ha = [H ones(N,1)];
+V = pinv(Ha)*D; 
+V = V';
+R = Ha*V';
+Y = R;
+E = D-Y;
+eqm = 1/(N*C)*E(:)'*E(:);
