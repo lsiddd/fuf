@@ -48,4 +48,4 @@ function images = loadMNISTImages (filename)
   % Convert to double and rescale to [0,1]
   images = double(images) / 255;
   images = images';
-endfunction
+end
