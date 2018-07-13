@@ -37,4 +37,4 @@ function labels = loadMNISTLabels (filename)
   assert(size(labels,1) == numLabels, 'Mismatch in label count');
   
   fclose(fp);
-endfunction
+end
