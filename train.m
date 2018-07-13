@@ -4,14 +4,14 @@ P = 500;
 %algoritmo ELM
 [N,M] = size(X);
 [xx,C] = size(D);
-if !exist('W1','var')
+if ~exist('W1','var')
   W1 = randn(P,M+1);
 end
 Xa = [X ones(N,1)];
 S1 = Xa*W1';
 H = tanh(S1);
 Ha = [H ones(N,1)];
-if !exist('W2','var')
+if ~exist('W2','var')
   W2t = pinv(Ha)*D;
   W2 = W2t';
 end
