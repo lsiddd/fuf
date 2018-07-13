@@ -8,7 +8,7 @@ for i = d(:)'
   d_line = [0 0 0 0 0 0 0 0 0 0];
   d_line(i+1) = 1;
   D = [D; d_line];
-endfor
+end
 
 train;
 
@@ -20,6 +20,6 @@ for i = d(:)'
   d_line = [0 0 0 0 0 0 0 0 0 0];
   d_line(i+1) = 1;
   D = [D; d_line];
-endfor
+end
 
 taxa
